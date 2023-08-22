@@ -3,30 +3,34 @@
 create schema GP03;
 use gp03;
 CREATE TABLE usuario (
-    numCuenta INT PRIMARY KEY UNIQUE auto_increment,
-    u_nombre VARCHAR(255),
-    u_apellido VARCHAR(255),
+    numCuenta INT PRIMARY KEY UNIQUE auto_increment not null,
+    u_nombre VARCHAR(255) not null,
+    u_apellido VARCHAR(255) not null,
     u_genero VARCHAR(10),
-    u_contraseña VARCHAR(255),
-    u_email VARCHAR(255) UNIQUE,
+    u_contraseña VARCHAR(255) not null,
+    u_email VARCHAR(255) UNIQUE not null,
     u_fechaNacimiento DATE,
     u_LugarNacimiento VARCHAR(255),
     u_PaisResidencia VARCHAR(255),
     u_Biografia TEXT,
     u_nacionalidad VARCHAR(255),
-    u_fechaRegistro DATETIME
+    u_fechaRegistro DATETIME not null
 );
-
+CREATE TABLE Arbol (
+	IdArbol int primary key unique not null auto_increment,
+    nombreArbol varchar(255)
+);
 CREATE TABLE testADN(
     idADN INT PRIMARY KEY UNIQUE auto_increment,
     resumenADN VARCHAR(1000),
     estimacionEtnica VARCHAR(1000),
     mapaEtnico VARCHAR(1000),
-    numCuenta  INT FOREING KEY REFERENCES usuario(numCuenta)
+    numCuenta  INT ,
+    FOREIGn KEY (numCuenta) REFERENCES usuario(numCuenta)
 );
 
 CREATE TABLE Familiar (
-    IdFamiliar INT PRIMARY KEY,
+    IdFamiliar INT PRIMARY KEY auto_increment not null unique,
     f_Género VARCHAR(10),
     f_Nombre VARCHAR(255),
     f_Apellido VARCHAR(255),
@@ -43,7 +47,60 @@ CREATE TABLE Familiar (
     f_Ocupación VARCHAR(255),
     f_Educación VARCHAR(255),
     IdArbol INT NOT NULL,
-    num_Cuenta INT,
+    numCuenta INT,
     FOREIGN KEY (IdArbol) REFERENCES Arbol(IdArbol),
-    FOREIGN KEY (num_Cuenta) REFERENCES Usuario(num_Cuenta)
+    FOREIGN KEY (numCuenta) REFERENCES Usuario(numCuenta)
 );
+
+
+CREATE TABLE Sitio(
+	IdSitio int primary key unique not null auto_increment,
+    nombreSitio varchar(255),
+    Dueño int,
+    IdArbol int,
+    foreign key (IdArbol) references Arbol(IdArbol),
+    foreign key (Dueño) references usuario(numCuenta)
+);
+
+create table sitiosColaboradores(
+	IdSitio int,
+    colaborador int,
+    foreign key (IdSitio) references Sitio(IdSitio),
+    foreign key (colaborador) references usuario(numCuenta)
+);
+create table padres (
+	idPadres int auto_increment primary key not null unique,
+    padre int,
+    madre int,
+    hijo int,
+    foreign key (padre) references familiar(IdFamiliar),
+    foreign key (madre) references familiar(IdFamiliar),
+    foreign key (hijo)  references familiar(IdFamiliar)
+);
+create table hermanos(
+	idHermanos int auto_increment primary key not null unique,
+    hermanos int,
+    familiar int,
+    foreign key (hermanos) references familiar(IdFamiliar),
+    foreign key (familiar) references familiar(IdFamiliar)
+);
+create table parejas(
+	idParejas int auto_increment primary key not null unique,
+    pareja int,
+    familiar int,
+    foreign key (pareja) references familiar(IdFamiliar),
+    foreign key (familiar) references familiar(IdFamiliar)
+);
+create table hijo(
+	idHijo int auto_increment primary key not null unique,
+    hijo int,
+    familiar int,
+    foreign key (hijo) references familiar(IdFamiliar),
+    foreign key (familiar) references familiar(IdFamiliar)
+);
+CREATE TABLE Graficos(
+	ID_grafico int primary key unique auto_increment not null,
+	tipoGrafico varchar(255),
+	estilo varchar(255),
+	IdArbol int,
+    foreign key (IdArbol) references Arbol(IdArbol));
