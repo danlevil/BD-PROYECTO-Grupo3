@@ -13,9 +13,9 @@ CREATE TABLE usuario (
     u_LugarNacimiento VARCHAR(255),
     u_PaisResidencia VARCHAR(255),
     u_Biografia TEXT,
-    u_nacionalidad VARCHAR(255),
     u_fechaRegistro DATETIME not null
 );
+
 CREATE TABLE Arbol (
 	IdArbol int primary key unique not null auto_increment,
     nombreArbol varchar(255)
@@ -37,21 +37,35 @@ CREATE TABLE Familiar (
     f_FechaNacimiento DATE,
     f_Defunción VARCHAR(20),
     f_Biografía TEXT,
-    f_Nacionalidad VARCHAR(255),
     f_CorreoElectrónico VARCHAR(255),
-    f_Dirección VARCHAR(255),
-    f_Ciudad VARCHAR(255),
     f_Religión VARCHAR(255),
-    f_País VARCHAR(255),
     f_Teléfono VARCHAR(20),
     f_Ocupación VARCHAR(255),
     f_Educación VARCHAR(255),
+    f_ubicacion int,
     IdArbol INT NOT NULL,
     numCuenta INT,
     FOREIGN KEY (IdArbol) REFERENCES Arbol(IdArbol),
-    FOREIGN KEY (numCuenta) REFERENCES Usuario(numCuenta)
+    FOREIGN KEY (numCuenta) REFERENCES Usuario(numCuenta),
+    FOREIGN KEY (f_ubicacion) REFERENCES ubicaciones(codigoUbicacion)
 );
 
+CREATE TABLE PAISES(
+	codigoPais int primary key auto_increment not null unique,
+    nombrePais varchar(100)
+);
+CREATE TABLE DIRECCIONES(
+	codigoDireccion int primary key auto_increment not null,
+    calle varchar(255),
+    numeroCalle int
+);
+CREATE TABLE ubicaciones(
+	codigoUbicacion int primary key auto_increment not null,
+    pais int,
+    direccion int,
+    foreign key (pais) references PAISES(codigoPais),
+    foreign key (direccion) references DIRECCIONES(codigoDireccion)
+);
 
 CREATE TABLE Sitio(
 	IdSitio int primary key unique not null auto_increment,
@@ -103,4 +117,5 @@ CREATE TABLE Graficos(
 	tipoGrafico varchar(255),
 	estilo varchar(255),
 	IdArbol int,
-    foreign key (IdArbol) references Arbol(IdArbol));
+    foreign key (IdArbol) references Arbol(IdArbol)
+);
