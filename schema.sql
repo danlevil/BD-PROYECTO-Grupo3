@@ -93,6 +93,7 @@ CREATE TABLE Familiar (
     FOREIGN KEY (f_ubicacion) REFERENCES ubicaciones(codigoUbicacion)
         on delete cascade
 );
+Alter table familiar drop constraint familiar_ibfk_2;
 create table padres (
 	idPadres int auto_increment primary key not null unique,
     padre int,
