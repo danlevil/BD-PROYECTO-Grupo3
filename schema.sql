@@ -27,8 +27,49 @@ CREATE TABLE testADN(
     mapaEtnico VARCHAR(1000),
     numCuenta  INT ,
     FOREIGn KEY (numCuenta) REFERENCES usuario(numCuenta)
+        on delete cascade
 );
 
+
+
+CREATE TABLE PAISES(
+	codigoPais int primary key auto_increment not null unique,
+    nombrePais varchar(100)
+);
+CREATE TABLE DIRECCIONES(
+	codigoDireccion int primary key auto_increment not null,
+    calle varchar(255),
+    numeroCalle int
+);
+CREATE TABLE ubicaciones(
+	codigoUbicacion int primary key auto_increment not null,
+    pais int,
+    direccion int,
+    foreign key (pais) references PAISES(codigoPais)
+        on delete cascade,
+    foreign key (direccion) references DIRECCIONES(codigoDireccion)
+        on delete cascade
+);
+
+CREATE TABLE Sitio(
+	IdSitio int primary key unique not null auto_increment,
+    nombreSitio varchar(255),
+    Dueño int,
+    IdArbol int,
+    foreign key (IdArbol) references Arbol(IdArbol)
+        on delete cascade,
+    foreign key (Dueño) references usuario(numCuenta)
+        on delete cascade
+);
+
+create table sitiosColaboradores(
+	IdSitio int,
+    colaborador int,
+    foreign key (IdSitio) references Sitio(IdSitio)
+        on delete cascade,
+    foreign key (colaborador) references usuario(numCuenta)
+        on delete cascade
+);
 CREATE TABLE Familiar (
     IdFamiliar INT PRIMARY KEY auto_increment not null unique,
     f_Género VARCHAR(10),
@@ -45,42 +86,12 @@ CREATE TABLE Familiar (
     f_ubicacion int,
     IdArbol INT NOT NULL,
     numCuenta INT,
-    FOREIGN KEY (IdArbol) REFERENCES Arbol(IdArbol),
-    FOREIGN KEY (numCuenta) REFERENCES Usuario(numCuenta),
+    FOREIGN KEY (IdArbol) REFERENCES Arbol(IdArbol)
+        on delete cascade,
+    FOREIGN KEY (numCuenta) REFERENCES Usuario(numCuenta)
+        on delete cascade,
     FOREIGN KEY (f_ubicacion) REFERENCES ubicaciones(codigoUbicacion)
-);
-
-CREATE TABLE PAISES(
-	codigoPais int primary key auto_increment not null unique,
-    nombrePais varchar(100)
-);
-CREATE TABLE DIRECCIONES(
-	codigoDireccion int primary key auto_increment not null,
-    calle varchar(255),
-    numeroCalle int
-);
-CREATE TABLE ubicaciones(
-	codigoUbicacion int primary key auto_increment not null,
-    pais int,
-    direccion int,
-    foreign key (pais) references PAISES(codigoPais),
-    foreign key (direccion) references DIRECCIONES(codigoDireccion)
-);
-
-CREATE TABLE Sitio(
-	IdSitio int primary key unique not null auto_increment,
-    nombreSitio varchar(255),
-    Dueño int,
-    IdArbol int,
-    foreign key (IdArbol) references Arbol(IdArbol),
-    foreign key (Dueño) references usuario(numCuenta)
-);
-
-create table sitiosColaboradores(
-	IdSitio int,
-    colaborador int,
-    foreign key (IdSitio) references Sitio(IdSitio),
-    foreign key (colaborador) references usuario(numCuenta)
+        on delete cascade
 );
 create table padres (
 	idPadres int auto_increment primary key not null unique,
@@ -118,4 +129,5 @@ CREATE TABLE Graficos(
 	estilo varchar(255),
 	IdArbol int,
     foreign key (IdArbol) references Arbol(IdArbol)
+		ON DELETE cascade
 );

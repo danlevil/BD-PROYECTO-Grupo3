@@ -2,6 +2,7 @@ use gp03;
 -- Tabla Usuario
 INSERT INTO usuario (u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES ('Juan', 'Pérez', 'Masculino', 'contraseña1', 'juan.perez@example.com', '1990-05-15',  'País A', 'Biografía 1',  '2022-01-10 08:30:00');
 INSERT INTO usuario (u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES ('María', 'Gómez', 'Femenino', 'contraseña2', 'maria.gomez@example.com', '1985-09-20',  'País B', 'Biografía 2',  '2023-02-18 14:45:00');
+INSERT INTO usuario (numCuenta, u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES (3,'Mario', 'Perez', 'Masculino', 'contraseña3', 'mperez@example.com', '1995-09-10',  'País B', 'Biografía 3',  '2017-02-18 14:45:00');
 INSERT INTO usuario (u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES ('Ana', 'Rodríguez', 'Femenino', 'contraseña3', 'ana.rodriguez@example.com', '1994-03-05',  'País C', 'Biografía 3',  '2021-11-30 17:20:00');
 INSERT INTO usuario (u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES ('Pedro', 'López', 'Masculino', 'contraseña4', 'pedro.lopez@example.com', '1991-08-12',  'País D', 'Biografía 4',  '2020-07-15 10:00:00');
 INSERT INTO usuario (u_nombre, u_apellido, u_genero, u_contraseña, u_email, u_fechaNacimiento,  u_PaisResidencia, u_Biografia,  u_fechaRegistro) VALUES ('Luisa', 'García', 'Femenino', 'contraseña5', 'luisa.garcia@example.com', '1988-02-28',  'País E', 'Biografía 5',  '2019-09-01 22:15:00');
@@ -167,73 +168,6 @@ INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (28, 15);
 INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (28, 16);
 INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (28, 17);
 INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (28, 18);
-INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (30, 5);
-INSERT INTO sitiosColaboradores (IdSitio, colaborador) VALUES (30, 20);
-
--- Table familiar
-INSERT INTO Familiar (f_Género, f_Nombre, f_Apellido, f_FechaNacimiento, f_Defunción, f_Biografía, f_CorreoElectrónico, f_Religión, f_Teléfono, f_Ocupación, f_Educación, f_ubicacion, IdArbol, numCuenta) VALUES 
-('Masculino', 'Juan', 'Pérez', '1995-03-12', NULL, 'Biografía Juan Pérez', 'juan.perez@example.com', 'Cristiana', '123-456-7890', 'Ingeniero', 'Licenciatura', 1, 1, 1),
-('Femenino', 'María', 'López', '1990-07-24', '2020-05-10', 'Biografía María López', 'maria.lopez@example.com', 'Católica', '987-654-3210', 'Médico', 'Doctorado', 1, 1, 2),
-('Masculino', 'Pedro', 'González', '1988-11-05', NULL, NULL, 'pedro.gonzalez@example.com', 'Ateo', '555-123-4567', 'Profesor', 'Maestría', 1, 1, 4),
-('Femenino', 'Ana', 'Martínez', '1993-09-18', NULL, 'Biografía Ana Martínez', 'ana.martinez@example.com', 'Budista', '111-222-3333', 'Abogada', 'Licenciatura', 4, 2, NULL),
-('Masculino', 'Luis', 'Rodríguez', '1997-02-01', NULL, 'Biografía Luis Rodríguez', 'luis.rodriguez@example.com', 'Hindú', '333-555-7777', 'Arquitecto', 'Licenciatura', 4, 2, 5),
-('Femenino', 'Sofía', 'Hernández', '1990-04-25', NULL, 'Biografía Sofía Hernández', 'sofia.hernandez@example.com', 'Musulmana', '444-777-9999', 'Enfermera', 'Licenciatura', 4, 2, NULL),
-('Masculino', 'Javier', 'Gómez', '1995-12-10', NULL, 'Biografía Javier Gómez', 'javier.gomez@example.com', 'Cristiana', '123-789-4560', 'Contador', 'Maestría', 7, 7, 22),
-('Femenino', 'Elena', 'Díaz', '1993-08-18', NULL, 'Biografía Elena Díaz', 'elena.diaz@example.com', 'Agnóstica', '999-888-7777', 'Diseñadora', 'Licenciatura', 7, 7, 8),
-('Masculino', 'Alejandro', 'Pérez', '1997-01-25', NULL, 'Biografía Alejandro Pérez', 'alejandro.perez@example.com', 'Judaísmo', '444-111-2222', 'Chef', 'Licenciatura', 9, 9, NULL),
-('Femenino', 'Valeria', 'López', '1989-04-02', '2021-09-15', 'Biografía Valeria López', 'valeria.lopez@example.com', 'Cristiana', '777-555-3333', 'Periodista', 'Maestría', 9, 9, NULL),
-('Masculino', 'Hugo', 'Gómez', '1994-10-12', NULL, 'Biografía Hugo Gómez', 'hugo.gomez@example.com', 'Budista', '111-444-7777', 'Ingeniero', 'Licenciatura', 9, 9, 11),
-('Femenino', 'Natalia', 'Martínez', '1991-07-05', NULL, 'Biografía Natalia Martínez', 'natalia.martinez@example.com', 'Cristiana', '333-777-1111', 'Psicóloga', 'Doctorado', 10, 9, 12),
-('Masculino', 'Martín', 'Fernández', '1998-02-20', NULL, 'Biografía Martín Fernández', 'martin.fernandez@example.com', 'Musulmán', '777-888-9999', 'Arquitecto', 'Licenciatura', 10, 9, NULL),
-('Femenino', 'Lucía', 'González', '1993-11-08', NULL, 'Biografía Lucía González', 'lucia.gonzalez@example.com', 'Agnóstica', '222-999-1111', 'Maestra', 'Maestría', 10, 9, NULL),
-('Masculino', 'Mateo', 'Hernández', '1996-05-15', NULL, 'Biografía Mateo Hernández', 'mateo.hernandez@example.com', 'Judaísmo', '888-777-6666', 'Médico', 'Doctorado', 15, 15, NULL),
-('Femenino', 'Sara', 'Díaz', '1990-03-30', NULL, 'Biografía Sara Díaz', 'sara.diaz@example.com', 'Budista', '444-333-2222', 'Ingeniera', 'Licenciatura', 16, 16, 16),
-('Masculino', 'Andrés', 'López', '1997-09-28', NULL, 'Biografía Andrés López', 'andres.lopez@example.com', 'Cristiana', '777-222-1111', 'Contador', 'Maestría', 17, 16, NULL),
-('Femenino', 'Carolina', 'Martínez', '1988-06-10', NULL, 'Biografía Carolina Martínez', 'carolina.martinez@example.com', 'Agnóstica', '333-666-9999', 'Diseñadora', 'Licenciatura', 16, 16, 18),
-('Masculino', 'Ricardo', 'Pérez', '1994-04-02', NULL, 'Biografía Ricardo Pérez', 'ricardo.perez@example.com', 'Budista', '222-555-7777', 'Chef', 'Licenciatura', 19, 1, 19),
-('Femenino', 'Isabel', 'Gómez', '1991-01-15', NULL, 'Biografía Isabel Gómez', 'isabel.gomez@example.com', 'Cristiana', '777-111-3333', 'Periodista', 'Maestría', 20, 2, NULL),
-('Masculino', 'Felipe', 'López', '1998-10-30', NULL, 'Biografía Felipe López', 'felipe.lopez@example.com', 'Judaísmo', '555-666-7777', 'Ingeniero', 'Licenciatura', 21, 9, NULL),
-('Femenino', 'Camila', 'Martínez', '1993-07-20', NULL, 'Biografía Camila Martínez', 'camila.martinez@example.com', 'Cristiana', '222-111-9999', 'Psicóloga', 'Doctorado', NULL, 15, 22),
-('Masculino', 'Gabriel', 'González', '1996-12-05', NULL, 'Biografía Gabriel González', 'gabriel.gonzalez@example.com', 'Musulmán', '666-555-4444', 'Arquitecto', 'Licenciatura', 23, 17, 23),
-('Femenino', 'Laura', 'Hernández', '1990-09-22', NULL, 'Biografía Laura Hernández', 'laura.hernandez@example.com', 'Agnóstica', '111-999-6666', 'Maestra', 'Maestría', 24, 18, 24),
-('Masculino', 'Diego', 'Rodríguez', '1997-08-07', NULL, 'Biografía Diego Rodríguez', 'diego.rodriguez@example.com', 'Judaísmo', '777-444-2222', 'Médico', 'Doctorado', 25, 25, 25),
-('Femenino', 'Julia', 'Díaz', '1992-06-25', NULL, 'Biografía Julia Díaz', 'julia.diaz@example.com', 'Budista', '333-666-1111', 'Ingeniera', 'Licenciatura', 26, 25, NULL),
-('Masculino', 'Samuel', 'Gómez', '1995-03-17', NULL, 'Biografía Samuel Gómez', 'samuel.gomez@example.com', 'Cristiana', '666-999-1111', 'Contador', 'Maestría', NULL, 25, 27),
-('Femenino', 'Valentina', 'Pérez', '1988-02-09', NULL, 'Biografía Valentina Pérez', 'valentina.perez@example.com', 'Agnóstica', '111-555-7777', 'Diseñadora', 'Licenciatura', NULL, 28, 28),
-('Masculino', 'Maximiliano', 'López', '1993-10-23', NULL, 'Biografía Maximiliano López', 'maximiliano.lopez@example.com', 'Budista', '999-222-3333', 'Chef', 'Licenciatura', 29, 28, 29),
-('Femenino', 'Mariana', 'Martínez', '1990-07-15', NULL, 'Biografía Mariana Martínez', 'mariana.martinez@example.com', 'Cristiana', '555-888-1111', 'Periodista', 'Maestría', 30, 30, NULL);
-
--- Table Padres
-INSERT INTO padres (padre, madre, hijo) VALUES (1, 2, 3);
-INSERT INTO padres (padre, madre, hijo) VALUES (1, 2, 6);
-INSERT INTO padres (padre, madre, hijo) VALUES (7, 8, 9);
-INSERT INTO padres (padre, madre, hijo) VALUES (10, 11, 12);
-INSERT INTO padres (padre, madre, hijo) VALUES (13, NULL, 15);
-INSERT INTO padres (padre, madre, hijo) VALUES (19, 20, 24);
-INSERT INTO padres (padre, madre, hijo) VALUES (25, 26, 27);
-INSERT INTO padres (padre, madre, hijo) VALUES (28, 29, 30);
-
--- Tabla Hermanos
-INSERT INTO hermanos (hermanos, familiar) VALUES (1, 2);
-INSERT INTO hermanos (hermanos, familiar) VALUES (3, 2);
-INSERT INTO hermanos (hermanos, familiar) VALUES (5, 2);
-INSERT INTO hermanos (hermanos, familiar) VALUES (7, 8);
-INSERT INTO hermanos (hermanos, familiar) VALUES (9, 10);
-INSERT INTO hermanos (hermanos, familiar) VALUES (11, 10);
-INSERT INTO hermanos (hermanos, familiar) VALUES (13, 14);
-INSERT INTO hermanos (hermanos, familiar) VALUES (15, 16);
-
--- Table Parejas
-INSERT INTO parejas (pareja, familiar) VALUES (4, 6);
-INSERT INTO parejas (pareja, familiar) VALUES (22, 30);
-INSERT INTO parejas (pareja, familiar) VALUES (21, 24);
-INSERT INTO parejas (pareja, familiar) VALUES (11, 18);
-
--- Table Hijos
-INSERT INTO hijo (hijo, familiar) VALUES (30, 2);
-INSERT INTO hijo (hijo, familiar) VALUES (30, 4);
-INSERT INTO hijo (hijo, familiar) VALUES (28, 1);
-
 
 -- Table Paises
 
@@ -322,4 +256,69 @@ INSERT INTO ubicaciones (pais, direccion) VALUES (15, 27);
 INSERT INTO ubicaciones (pais, direccion) VALUES (15, 28);
 INSERT INTO ubicaciones (pais, direccion) VALUES (15, 29);
 INSERT INTO ubicaciones (pais, direccion) VALUES (15, 30);
+
+-- Table familiar
+INSERT INTO Familiar (f_Género, f_Nombre, f_Apellido, f_FechaNacimiento, f_Defunción, f_Biografía, f_CorreoElectrónico, f_Religión, f_Teléfono, f_Ocupación, f_Educación, f_ubicacion, IdArbol, numCuenta) VALUES 
+('Masculino', 'Juan', 'Pérez', '1995-03-12', NULL, 'Biografía Juan Pérez', 'juan.perez@example.com', 'Cristiana', '123-456-7890', 'Ingeniero', 'Licenciatura', 1, 1, 1),
+('Femenino', 'María', 'López', '1990-07-24', '2020-05-10', 'Biografía María López', 'maria.lopez@example.com', 'Católica', '987-654-3210', 'Médico', 'Doctorado', 1, 1, 2),
+('Masculino', 'Pedro', 'González', '1988-11-05', NULL, NULL, 'pedro.gonzalez@example.com', 'Ateo', '555-123-4567', 'Profesor', 'Maestría', 1, 1, 4),
+('Femenino', 'Ana', 'Martínez', '1993-09-18', NULL, 'Biografía Ana Martínez', 'ana.martinez@example.com', 'Budista', '111-222-3333', 'Abogada', 'Licenciatura', 4, 2, NULL),
+('Masculino', 'Luis', 'Rodríguez', '1997-02-01', NULL, 'Biografía Luis Rodríguez', 'luis.rodriguez@example.com', 'Hindú', '333-555-7777', 'Arquitecto', 'Licenciatura', 4, 2, 5),
+('Femenino', 'Sofía', 'Hernández', '1990-04-25', NULL, 'Biografía Sofía Hernández', 'sofia.hernandez@example.com', 'Musulmana', '444-777-9999', 'Enfermera', 'Licenciatura', 4, 2, NULL),
+('Masculino', 'Javier', 'Gómez', '1995-12-10', NULL, 'Biografía Javier Gómez', 'javier.gomez@example.com', 'Cristiana', '123-789-4560', 'Contador', 'Maestría', 7, 7, 22),
+('Femenino', 'Elena', 'Díaz', '1993-08-18', NULL, 'Biografía Elena Díaz', 'elena.diaz@example.com', 'Agnóstica', '999-888-7777', 'Diseñadora', 'Licenciatura', 7, 7, 8),
+('Masculino', 'Alejandro', 'Pérez', '1997-01-25', NULL, 'Biografía Alejandro Pérez', 'alejandro.perez@example.com', 'Judaísmo', '444-111-2222', 'Chef', 'Licenciatura', 9, 9, NULL),
+('Femenino', 'Valeria', 'López', '1989-04-02', '2021-09-15', 'Biografía Valeria López', 'valeria.lopez@example.com', 'Cristiana', '777-555-3333', 'Periodista', 'Maestría', 9, 9, NULL),
+('Masculino', 'Hugo', 'Gómez', '1994-10-12', NULL, 'Biografía Hugo Gómez', 'hugo.gomez@example.com', 'Budista', '111-444-7777', 'Ingeniero', 'Licenciatura', 9, 9, 11),
+('Femenino', 'Natalia', 'Martínez', '1991-07-05', NULL, 'Biografía Natalia Martínez', 'natalia.martinez@example.com', 'Cristiana', '333-777-1111', 'Psicóloga', 'Doctorado', 10, 9, 12),
+('Masculino', 'Martín', 'Fernández', '1998-02-20', NULL, 'Biografía Martín Fernández', 'martin.fernandez@example.com', 'Musulmán', '777-888-9999', 'Arquitecto', 'Licenciatura', 10, 9, NULL),
+('Femenino', 'Lucía', 'González', '1993-11-08', NULL, 'Biografía Lucía González', 'lucia.gonzalez@example.com', 'Agnóstica', '222-999-1111', 'Maestra', 'Maestría', 10, 9, NULL),
+('Masculino', 'Mateo', 'Hernández', '1996-05-15', NULL, 'Biografía Mateo Hernández', 'mateo.hernandez@example.com', 'Judaísmo', '888-777-6666', 'Médico', 'Doctorado', 15, 15, NULL),
+('Femenino', 'Sara', 'Díaz', '1990-03-30', NULL, 'Biografía Sara Díaz', 'sara.diaz@example.com', 'Budista', '444-333-2222', 'Ingeniera', 'Licenciatura', 16, 16, 16),
+('Masculino', 'Andrés', 'López', '1997-09-28', NULL, 'Biografía Andrés López', 'andres.lopez@example.com', 'Cristiana', '777-222-1111', 'Contador', 'Maestría', 17, 16, NULL),
+('Femenino', 'Carolina', 'Martínez', '1988-06-10', NULL, 'Biografía Carolina Martínez', 'carolina.martinez@example.com', 'Agnóstica', '333-666-9999', 'Diseñadora', 'Licenciatura', 16, 16, 18),
+('Masculino', 'Ricardo', 'Pérez', '1994-04-02', NULL, 'Biografía Ricardo Pérez', 'ricardo.perez@example.com', 'Budista', '222-555-7777', 'Chef', 'Licenciatura', 19, 1, 19),
+('Femenino', 'Isabel', 'Gómez', '1991-01-15', NULL, 'Biografía Isabel Gómez', 'isabel.gomez@example.com', 'Cristiana', '777-111-3333', 'Periodista', 'Maestría', 20, 2, NULL),
+('Masculino', 'Felipe', 'López', '1998-10-30', NULL, 'Biografía Felipe López', 'felipe.lopez@example.com', 'Judaísmo', '555-666-7777', 'Ingeniero', 'Licenciatura', 21, 9, NULL),
+('Femenino', 'Camila', 'Martínez', '1993-07-20', NULL, 'Biografía Camila Martínez', 'camila.martinez@example.com', 'Cristiana', '222-111-9999', 'Psicóloga', 'Doctorado', NULL, 15, 22),
+('Masculino', 'Gabriel', 'González', '1996-12-05', NULL, 'Biografía Gabriel González', 'gabriel.gonzalez@example.com', 'Musulmán', '666-555-4444', 'Arquitecto', 'Licenciatura', 23, 17, 23),
+('Femenino', 'Laura', 'Hernández', '1990-09-22', NULL, 'Biografía Laura Hernández', 'laura.hernandez@example.com', 'Agnóstica', '111-999-6666', 'Maestra', 'Maestría', 24, 18, 24),
+('Masculino', 'Diego', 'Rodríguez', '1997-08-07', NULL, 'Biografía Diego Rodríguez', 'diego.rodriguez@example.com', 'Judaísmo', '777-444-2222', 'Médico', 'Doctorado', 25, 25, 25),
+('Femenino', 'Julia', 'Díaz', '1992-06-25', NULL, 'Biografía Julia Díaz', 'julia.diaz@example.com', 'Budista', '333-666-1111', 'Ingeniera', 'Licenciatura', 26, 25, NULL),
+('Masculino', 'Samuel', 'Gómez', '1995-03-17', NULL, 'Biografía Samuel Gómez', 'samuel.gomez@example.com', 'Cristiana', '666-999-1111', 'Contador', 'Maestría', NULL, 25, 27),
+('Femenino', 'Valentina', 'Pérez', '1988-02-09', NULL, 'Biografía Valentina Pérez', 'valentina.perez@example.com', 'Agnóstica', '111-555-7777', 'Diseñadora', 'Licenciatura', NULL, 28, 28),
+('Masculino', 'Maximiliano', 'López', '1993-10-23', NULL, 'Biografía Maximiliano López', 'maximiliano.lopez@example.com', 'Budista', '999-222-3333', 'Chef', 'Licenciatura', 29, 28, 29),
+('Femenino', 'Mariana', 'Martínez', '1990-07-15', NULL, 'Biografía Mariana Martínez', 'mariana.martinez@example.com', 'Cristiana', '555-888-1111', 'Periodista', 'Maestría', 30, 30, NULL);
+
+-- Table Padres
+INSERT INTO padres (padre, madre, hijo) VALUES (7, 8, 9);
+INSERT INTO padres (padre, madre, hijo) VALUES (10, 11, 12);
+INSERT INTO padres (padre, madre, hijo) VALUES (13, NULL, 15);
+INSERT INTO padres (padre, madre, hijo) VALUES (19, 20, 24);
+INSERT INTO padres (padre, madre, hijo) VALUES (25, 26, 27);
+INSERT INTO padres (padre, madre, hijo) VALUES (28, 29, 30);
+
+-- Tabla Hermanos
+INSERT INTO hermanos (hermanos, familiar) VALUES (1, 2);
+INSERT INTO hermanos (hermanos, familiar) VALUES (3, 2);
+INSERT INTO hermanos (hermanos, familiar) VALUES (5, 2);
+INSERT INTO hermanos (hermanos, familiar) VALUES (7, 8);
+INSERT INTO hermanos (hermanos, familiar) VALUES (9, 10);
+INSERT INTO hermanos (hermanos, familiar) VALUES (11, 10);
+INSERT INTO hermanos (hermanos, familiar) VALUES (13, 14);
+INSERT INTO hermanos (hermanos, familiar) VALUES (15, 16);
+
+-- Table Parejas
+INSERT INTO parejas (pareja, familiar) VALUES (4, 6);
+INSERT INTO parejas (pareja, familiar) VALUES (22, 30);
+INSERT INTO parejas (pareja, familiar) VALUES (21, 24);
+INSERT INTO parejas (pareja, familiar) VALUES (11, 18);
+
+-- Table Hijos
+INSERT INTO hijo (hijo, familiar) VALUES (30, 2);
+INSERT INTO hijo (hijo, familiar) VALUES (30, 4);
+INSERT INTO hijo (hijo, familiar) VALUES (28, 1);
+
+
+
 
